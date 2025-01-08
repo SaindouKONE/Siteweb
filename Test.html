@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carte Interactive</title>
+  <link rel="stylesheet" href="StyleTest.css">
+  <!-- Bibliothèque Leaflet pour la carte -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="logo.png" alt="Logo" class="logo-img">
+    </div>
+    <h1>Carte Interactive</h1>
+    <button class="login-button" onclick="openLoginModal()">Connexion</button>
+  </header>
+
+  <aside class="sidebar">
+    <div class="icon" data-tooltip="Accueil" onclick="goToHome()">
+      <img src="home-icon.png" alt="Accueil">
+    </div>
+    <div class="icon" data-tooltip="Couches" onclick="toggleSubmenu('layers-menu')">
+      <img src="layers-icon.png" alt="Couches">
+    </div>
+    <div class="icon" data-tooltip="Infos" onclick="toggleSubmenu('info-menu')">
+      <img src="info-icon.png" alt="Infos">
+    </div>
+    <div class="icon" data-tooltip="Carte de Fond" onclick="toggleSubmenu('basemap-menu')">
+      <img src="basemap-icon.png" alt="Carte de Fond">
+    </div>
+    <div class="icon" data-tooltip="Légende" onclick="toggleSubmenu('legend-menu')">
+      <img src="legend-icon.png" alt="Légende">
+    </div>
+  </aside>
+
+  <section id="map"></section>
+
+  <!-- Sous-menus -->
+  <div id="layers-menu" class="submenu">
+    <h3>Couches</h3>
+    <ul>
+      <li><input type="checkbox" id="layer1"> Couche 1</li>
+      <li><input type="checkbox" id="layer2"> Couche 2</li>
+      <li><input type="checkbox" id="layer3"> Couche 3</li>
+    </ul>
+  </div>
+
+  <div id="info-menu" class="submenu">
+    <h3>Infos</h3>
+    <p>Cliquez sur un objet pour afficher ses informations.</p>
+  </div>
+
+  <div id="basemap-menu" class="submenu">
+    <h3>Carte de Fond</h3>
+    <select id="basemap-selector">
+      <option value="satellite">Satellite</option>
+      <option value="ign">IGN Orthophotos</option>
+      <option value="local">Image Locale</option>
+    </select>
+  </div>
+
+  <div id="legend-menu" class="submenu">
+    <h3>Légende</h3>
+    <p>Ici s'affiche la légende des couches activées.</p>
+  </div>
+
+  <!-- Modal de Connexion -->
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeLoginModal()">&times;</span>
+      <h2>Connexion</h2>
+      <form>
+        <label for="username">Nom d'utilisateur</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password">
+        <button type="submit">Se connecter</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bibliothèque Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script src="JavaTest.js"></script>
+</body>
+</html>
